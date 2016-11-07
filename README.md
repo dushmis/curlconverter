@@ -26,6 +26,8 @@ Returns a string of python code like:
 
 ```python
 
+import requests
+
 cookies = {
     'GeoIP': 'US:Albuquerque:35.1241:-106.7675:v4',
     'uls-previous-languages': '%5B%22en%22%5D',
@@ -47,6 +49,18 @@ headers = {
 requests.get('http://en.wikipedia.org/', headers=headers, cookies=cookies)
 ```
 
+## Contributing
+
+If you want to add new functionality, start with a test. 
+
+- Create a file containing the curl command in `fixtures/curl_commands` with a descriptive filename like `post_with_headers.txt`
+- Create a file containing the output in `fixtures/python_output/` with a matching filename (but different extension) like `post_with_headers.py`
+- Run tests with `npm test`.
+- If your filenames match correctly, you should see one failing test. Fix it by modifying the parser in `util.js` or the generators in `generators/`
+
+The parser generates a generic data structure consumed by code generator functions.
+
+If you get stuck, please reach out via email. I am always willing to hop on a google hangout and pair program.
 
 ## License
 
